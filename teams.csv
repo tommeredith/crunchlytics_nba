@@ -1,0 +1,31 @@
+team_id,team_name,wins,losses,ppg,opp_ppg,id
+MIL,Milwaukee Bucks,53,12,118.6,107.4,1
+TOR,Toronto Raptors,46,18,113.0,106.5,2
+BOS,Boston Celtics,43,21,113.0,106.8,3
+MIA,Miami Heat,41,24,112.2,108.9,4
+IND,Indiana Pacers,39,26,109.3,107.4,5
+PHI,Philadelphia 76ers,39,26,109.6,107.4,6
+BRK,Brooklyn Nets,30,34,110.8,111.4,7
+ORL,Orlando Magic,30,35,106.4,107.3,8
+WAS,Washington Wizards,24,40,115.6,119.7,9
+CHO,Charlotte Hornets,23,42,102.9,109.6,10
+CHI,Chicago Bulls,22,43,106.8,109.9,11
+NYK,New York Knicks,21,45,105.8,112.3,12
+DET,Detroit Pistons,20,46,107.2,110.8,13
+ATL,Atlanta Hawks,20,47,111.8,119.7,14
+CLE,Cleveland Cavaliers,19,46,106.9,114.8,15
+LAL,Los Angeles Lakers,49,14,114.3,106.9,16
+LAC,Los Angeles Clippers,44,20,116.2,109.7,17
+DEN,Denver Nuggets,43,22,110.4,107.4,18
+UTA,Utah Jazz,41,23,111.0,107.9,19
+OKC,Oklahoma City Thunder,40,24,110.8,108.3,20
+HOU,Houston Rockets,40,24,118.1,114.4,21
+DAL,Dallas Mavericks,40,27,116.4,110.3,22
+MEM,Memphis Grizzlies,32,33,112.6,113.7,23
+POR,Portland Trail Blazers,29,37,113.6,115.2,24
+NOP,New Orleans Pelicans,28,36,116.2,117.0,25
+SAC,Sacramento Kings,28,36,109.0,110.9,26
+SAS,San Antonio Spurs,27,36,113.2,114.9,27
+PHO,Phoenix Suns,26,39,112.6,113.9,28
+MIN,Minnesota Timberwolves,19,45,113.3,117.5,29
+GSW,Golden State Warriors,15,50,106.3,115.0,30

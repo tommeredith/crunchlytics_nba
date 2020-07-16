@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/crunchlytics_nba.iml" filepath="$PROJECT_DIR$/.idea/crunchlytics_nba.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../crunchlytics/.idea/immaGiveThisAShot.iml" filepath="$PROJECT_DIR$/../crunchlytics/.idea/immaGiveThisAShot.iml" />
+    </modules>
+  </component>
+</project>
