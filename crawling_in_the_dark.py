@@ -24,7 +24,7 @@ def parse_standings(team):
     team_obj['opp_ppg'] = team_opp_ppg
     return team_obj
 
-def get_league_standings(url):
+def get_team_ids(url):
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
     east_league_table = soup.find("table", {"id": "confs_standings_E"})
@@ -79,7 +79,6 @@ def get_game_score(game):
             day += int(seg.split('=')[1])
 
     formatted_date = datetime.datetime(year, month, day).date()
-    print(formatted_date)
     home_link = game.find('td', {'data-stat': 'home_team_name'}).find('a')
     home_team_name = home_link.get_text()
     home_team_id = home_link.get('href').split('/')[2]
@@ -178,7 +177,7 @@ def scrape_games_like_a_thug(games_url, standings_url):
     page = requests.get(games_url)
     soup = BeautifulSoup(page.content, 'html.parser')
     months = get_game_months(soup)
-    team_ids = get_league_standings(standings_url)
+    team_ids = get_team_ids(standings_url)
     outside_index = 1
     for month in months:
         month_url = "https://www.basketball-reference.com" + month.get('href')
@@ -213,29 +212,31 @@ def just_the_standings(standings_url):
     print('============== SCRAPING STANDINGS ==================')
     print('')
     print('')
-    team_ids = get_league_standings(standings_url)
+    team_ids = get_team_ids(standings_url)
     convert_team_ids_to_csv(team_ids)
     stash_standings_in_db(team_ids, 'nba')
     print('============== DONEZO ==================')
 
-# initialise parser object to read from command line
-parser = argparse.ArgumentParser()
 
-# script arguments
-parser.add_argument('-s', '--standings', action='store_true', help='just scrape standings')
-parser.add_argument('-stash', '--stash', action='store_true', help='stash in db')
-args = parser.parse_args()
+if __name__ == "__main__":
+    # initialise parser object to read from command line
+    parser = argparse.ArgumentParser()
 
-games_url = 'https://www.basketball-reference.com/leagues/NBA_2020_games.html'
-standings_url = 'https://www.basketball-reference.com/leagues/NBA_2020_standings.html'
+    # script arguments
+    parser.add_argument('-s', '--standings', action='store_true', help='just scrape standings')
+    parser.add_argument('-stash', '--stash', action='store_true', help='stash in db')
+    args = parser.parse_args()
 
-if args.stash:
-    with open("full_game_log_nba.csv", "r") as f:
-        reader = csv.DictReader(f)
-        game_log_list = list(reader)
-        stash_in_db(game_log_list, 'nba')
-elif args.standings:
-    just_the_standings(standings_url)
-else:
-    scrape_games_like_a_thug(games_url, standings_url)
+    games_url = 'https://www.basketball-reference.com/leagues/NBA_2020_games.html'
+    standings_url = 'https://www.basketball-reference.com/leagues/NBA_2020_standings.html'
+
+    if args.stash:
+        with open("full_game_log_nba.csv", "r") as f:
+            reader = csv.DictReader(f)
+            game_log_list = list(reader)
+            stash_in_db(game_log_list, 'nba')
+    elif args.standings:
+        just_the_standings(standings_url)
+    else:
+        scrape_games_like_a_thug(games_url, standings_url)
 
